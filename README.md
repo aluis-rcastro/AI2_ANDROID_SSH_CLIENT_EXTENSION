@@ -13,4 +13,4 @@ USAGE:
 
 4.1 ) ...from within "NewIncomingMessage" event, argument "data" contains current text line, indded the last one.
 
-4.1 ) ...by reading "GetReceivedMessage" variable; be aware that it is assyncronously updated (intermediary values are superseded)
+4.1 ) ...by reading "GetReceivedMessage" variable; it is assyncronously updated (intermediary values are superseded)
