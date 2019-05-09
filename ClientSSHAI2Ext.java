@@ -9,7 +9,7 @@ package ext.appinventor.SSH.ClientSSHAI2Ext;
 //   Copyright 2009-2011 Google, All Rights reserved
 //   Copyright 2011-2012 MIT, All rights reserved
 
-//	 This code is provided "as-is", which means no implicit or explicit warranty.
+//   This code is provided "as-is", which means no implicit or explicit warranty
 
 import com.google.appinventor.components.runtime.*;
 	 
@@ -61,7 +61,7 @@ import java.io.*;
 /**
  * General config parameters
  */
-@DesignerComponent(version = 1,
+@DesignerComponent(version = 2,
 		description = "Non-visible component that provides client ssh connectivity.",
 		category = ComponentCategory.EXTENSION,
 		nonVisible = true,
@@ -290,7 +290,7 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
      * Send cmd through ssh to the server
      */
     @SimpleFunction(description = "Send cmd to the server")
-    public void SendData( final String data ) {
+    public void SendData( final String command ) {
 		bButtonStart = true;
 		SetDebugText("Start SendData function");
         if ( GetConnectionState() == true ) {
@@ -336,7 +336,7 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
 											SetConnectionState(true);
 
 											Channel channel=session.openChannel("exec");
-											((ChannelExec)channel).setCommand(data);
+											((ChannelExec)channel).setCommand(command);
 
 											channel.setInputStream(System.in);
 											channel.setOutputStream(System.out);
@@ -358,10 +358,11 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
 												  if(i<0)
 													  break;
 												  RecBytes = new String(tmp, 0, i) ;
-												  // System.out.print(RecBytes);
 												  SetReceivedMessage(RecBytes);
+												  SetDebugText("receiving...");
 												}
-												NewIncomingMessage(RecBytes);
+												SetDebugText("Got text");
+												NewIncomingMessage(GetReceivedMessage());
 												if(channel.isClosed()){
 												  if(in.available()>0) 
 													  continue; 
@@ -370,12 +371,10 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
 												}try
 													{
 													Thread.sleep(1000);
+													SetDebugText("Sleeping");
 													}
-													catch(Exception err3){
-														SetDebugText ("err3");
-														// err3.printStackTrace();
-														//System.out.println("Got runtime error err3: " + err3);
-														// throw new YailRuntimeError("err3", "Error");
+													catch(Exception errSleep){
+														SetDebugText ("error attempting to sleep");
 														break;
 													}
 											  }
