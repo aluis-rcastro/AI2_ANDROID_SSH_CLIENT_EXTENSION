@@ -2,7 +2,9 @@
 Android client SSH extension for MIT Application Inventor 2
 
 
-This is an AI2 extension made in Java for Android, compiled with the Apache ANT builder. It allows issuing Linux Bash/Shell commands to a remote SSH server, prefereably done in short execution, once the runnable thread runs under the AssyncTask, otherwise the whole application will become unresponsive to user interactions.
+This is an AI2 extension made in Java for Android, compiled with the Apache ANT builder. It allows issuing Linux Bash/Shell commands to a remote SSH server, prefereably done in short execution, once the runnable thread runs under the AssyncTask, otherwise the whole application will become unresponsive to user interactions. 
+
+The code may be also useful for users of the AppyBuilder community; note however that although being intrinsically compatible, it were not tested on this development platform.
 
 Bellow, a snapshot of the Component collection:
 
