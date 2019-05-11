@@ -8,7 +8,7 @@ The code may be also useful for users of the AppyBuilder community; note however
 
 Bellow, a snapshot of the Component collection:
 
-<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/Component.png" alt="" width="250" height="250">
+<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Component.png" alt="" width="250" height="250">
 
 
 # USAGE:
@@ -32,12 +32,12 @@ Bellow, a snapshot of the Component collection:
 
 A simple application with few components can be made to show check the extension working:
 
-<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/TestApp.png" alt="" width="650" height="250">
+<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/TestApp.png" alt="" width="650" height="250">
 
 
 With the suggested arrangement:
 
-<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/Screen.png" alt="" width="350" height="300">
+<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Screen.png" alt="" width="350" height="300">
 
 
 # WORKING FILES
