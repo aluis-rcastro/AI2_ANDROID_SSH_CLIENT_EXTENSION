@@ -300,99 +300,92 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
 		}
 		else{
 			try {	
-					final JSch jsch = new JSch();							
-					SetDebugText("Attempt to connect");	
-					AsynchUtil.runAsynchronously(new Runnable()
+				final JSch jsch = new JSch();							
+				SetDebugText("Attempt to connect");	
+				AsynchUtil.runAsynchronously(new Runnable()
+				{
+					@Override
+					public void run() 
 					{
-						@Override
-						public void run() 
+					SetDebugText("Run runAsynchronously");
+						if ( GetConnectionState() == false )
 						{
-						SetDebugText("Run runAsynchronously");
-							if ( GetConnectionState() == false )
-							{
-								if ( bButtonStart == true )
-									{	
-									try{
-										SetDebugText("Try within runAsynchronously");  		
-										java.util.Properties config = new java.util.Properties(); 
-										config.put("StrictHostKeyChecking", "no");
-										JSch jsch = new JSch();
-										SetDebugText("JSch instantiated");
-										Session session=jsch.getSession(user, host, 22);
-										session.setTimeout(10000);
-										session.setPassword(passwd);  
-										session.setConfig(config);
-										session.connect(30000); 		// making a connection with expressive timeout.
-										SetDebugText("Session connected");
-										SetConnectionState(true);
-										Channel channel=session.openChannel("exec");
-										((ChannelExec)channel).setCommand(command);
-										channel.setInputStream(System.in);
-										channel.setOutputStream(System.out);
-										((ChannelExec)channel).setErrStream(System.err);
-										InputStream in=channel.getInputStream();
-										channel.connect();
-										SetDebugText("Channel connected");
-										byte[] tmp=new byte[1024];
-										String RecBytes	= "";
-										SetDebugText("Started infinite loop - receive");
-										while(true){
-											while(in.available()>0){
-											  int i=in.read(tmp, 0, 1024);
-											  if(i<0)
-												  break;
-											  String RecBytes = new String(tmp, 0, i) ;
-											  SetReceivedMessage(RecBytes);
-											  SetDebugText("receiving...");
-											}
-											SetDebugText("Got text");
-											NewIncomingMessage(GetReceivedMessage());
-											if(channel.isClosed()){
+							if ( bButtonStart == true )
+								{	
+								try{
+									SetDebugText("Try within runAsynchronously");  		
+									java.util.Properties config = new java.util.Properties(); 
+									config.put("StrictHostKeyChecking", "no");
+									JSch jsch = new JSch();
+									SetDebugText("JSch instantiated");
+									Session session=jsch.getSession(user, host, 22);
+									session.setTimeout(10000);
+									session.setPassword(passwd);  
+									session.setConfig(config);
+									session.connect(30000); 		// making a connection with expressive timeout.
+									SetDebugText("Session connected");
+									SetConnectionState(true);
+									Channel channel=session.openChannel("exec");
+									((ChannelExec)channel).setCommand(command);
+									channel.setInputStream(System.in);
+									channel.setOutputStream(System.out);
+									((ChannelExec)channel).setErrStream(System.err);
+									InputStream in=channel.getInputStream();
+									channel.connect();
+									SetDebugText("Channel connected");
+									byte[] tmp=new byte[1024];
+									String RecBytes	= "";
+									SetDebugText("Started infinite loop - receive");
+									while(true){
+										while(in.available()>0){
+										  int i=in.read(tmp, 0, 1024);
+										  if(i<0)
+											  break;
+										  String RecBytes = new String(tmp, 0, i) ;
+										  SetReceivedMessage(RecBytes);
+										  SetDebugText("receiving...");
+										}
+										SetDebugText("Got text");
+										NewIncomingMessage(GetReceivedMessage());
+										if(channel.isClosed()){
 											  if(in.available()>0) 
 												  continue; 
-											  System.out.println("exit-status: "+ channel.getExitStatus());
-											  break;
-											}try
-												{
-												Thread.sleep(1000);
-												SetDebugText("Sleeping");
-												}
-												catch(Exception errSleep){
-													SetDebugText ("error attempting to sleep");
-													break;
-												}
-										  }
+										  System.out.println("exit-status: "+ channel.getExitStatus());
+										  break;
+										}try
+											{
+											Thread.sleep(1000);
+											SetDebugText("Sleeping");
+											}
+											catch(Exception errSleep){
+												SetDebugText ("error attempting to sleep");
+												break;
+											}
+									  }
 
-										SetDebugText("Exit from infinite loop - receive");
-										channel.disconnect();
-										SetDebugText("Channel disconnected");
-										session.disconnect();		
-										SetDebugText("Session disconnected");
-										SetConnectionState(false);
-										SetDebugText("End of reception");
-									}
-									catch ( Exception  exception  ) {
-										SetDebugText ("Exception: " + exception.getMessage());
-									}
+									SetDebugText("Exit from infinite loop - receive");
+									channel.disconnect();
+									SetDebugText("Channel disconnected");
+									session.disconnect();		
+									SetDebugText("Session disconnected");
+									SetConnectionState(false);
+									SetDebugText("End of reception");
 								}
-							}							
-						}	
-					});
-					
-					
+								catch ( Exception  exception  ) {
+									SetDebugText ("Exception: " + exception.getMessage());
+								}
+							}
+						}							
+					}	
+				});
 				}
-				catch(Exception err7){
+				catch(Exception err){
 					SetConnectionState(false);
 					bButtonStart = false;
 					// System.out.println("Got runtime error: " + e);
 					// throw new YailRuntimeError("err7", "Error");
-					// SetDebugText("err7");
-				}	
-				
-				
-				
-				
-				
+					// SetDebugText("err");
+				}		
 		}
 	}	
 }
