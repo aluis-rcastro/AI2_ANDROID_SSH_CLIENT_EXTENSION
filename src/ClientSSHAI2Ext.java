@@ -100,15 +100,11 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
     	private boolean bButtonStart = false;	
 	// String containing the SSH command to be issued to the remote terminal
 	private	String command = "";
-	// boolean that enables raising events due to new debug messages
-	private boolean EventFromDebugMessages = false;
-	
 
     	private final Activity activity;
 
     	InputStream inputStream = null;
-	
-					
+				
     /**
      * Creates a new Client SSH component.
      *
@@ -122,16 +118,6 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
         StrictMode.setThreadPolicy(policy);		
     }
 
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /**
-     * Method that enable raising event messages (may overload core processing with useless information, most the time) 
-     */
-    @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Method that enable raising event messages")
-    public void EnableEventFromDebugMessages(boolean state)
-    {
-        EventFromDebugMessages = state;
-    }	
-	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      * Method that set the single-line Bash/Shell Command to be issued to the remote server
@@ -243,8 +229,6 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
     public void SetDebugText(String Text)
     {
         DebugText = Text;
-		if ( EventFromDebugMessages == true)
-			NewDebugMessage(Text);
     }
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -260,30 +244,6 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
     public void SetReceivedMessage(String Text)
     {
         ReceivedMessage = Text;
-    }
-
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /**
-     * Event indicating that there is available new text line
-     *
-     */
-	@SimpleEvent
-    public void NewDebugMessage(String msgDbg)
-    {
-        // invoke the application's "NewDebugMessage" event handler.
-        EventDispatcher.dispatchEvent(this, "NewDebugMessage", msgDbg);
-    }
-	
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /**
-     * Event indicating that there is available new text line
-     *
-     */
-	@SimpleEvent
-    public void NewIncomingMessage(String msgIn)
-    {
-        // invoke the application's "NewIncomingMessage" event handler.
-        EventDispatcher.dispatchEvent(this, "NewIncomingMessage", msgIn);
     }
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -398,4 +358,16 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
 				}		
 		}
 	}	
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Event indicating that there is available new text line
+     *
+     */
+	@SimpleEvent
+    public void NewIncomingMessage(String msgIn)
+    {
+        // invoke the application's "NewIncomingMessage" event handler.
+        EventDispatcher.dispatchEvent(this, "NewIncomingMessage", msgIn);
+    }
 }
