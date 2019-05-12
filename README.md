@@ -40,7 +40,5 @@ With the suggested arrangement:
 <img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Screen.png" alt="" width="350" height="300">
 
 
-# WORKING FILES
 
-https://sourceforge.net/projects/ai2-ssh-extension/
 
