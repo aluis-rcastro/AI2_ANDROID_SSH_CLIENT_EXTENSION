@@ -3,14 +3,16 @@ package ext.appinventor.SSH.ClientSSHAI2Ext;
  * Simple Client SSH based on the JSCH library
  * @author aluis.rcastro@bol.com.br
  * @Date 2019.05.08
+ * 
  * Copyright (c) 2019 andre luis ramos de castro
+ * 
  */
- 
 //   Copyright (c) 2002-2018 ymnk, JCraft,Inc. All rights reserved.
 //   Copyright 2009-2011 Google, All Rights reserved
 //   Copyright 2011-2012 MIT, All rights reserved
-
+// 
 //   This code is provided "as-is", which means no implicit or explicit warranty
+// 
 
 import com.google.appinventor.components.runtime.*;
 	 
