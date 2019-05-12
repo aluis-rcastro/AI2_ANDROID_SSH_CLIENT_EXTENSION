@@ -39,6 +39,5 @@ With the suggested arrangement:
 
 <img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Screen.png" alt="" width="350" height="400">
 
-
-
+If you want to give suggestions or if you notice any problem, please report it on the above 'Issue' section.
 
