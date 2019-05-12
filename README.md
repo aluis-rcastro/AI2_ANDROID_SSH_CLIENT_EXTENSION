@@ -37,7 +37,7 @@ A simple application with few components can be made to show check the extension
 
 With the suggested arrangement:
 
-<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Screen.png" alt="" width="350" height="300">
+<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Screen.png" alt="" width="350" height="400">
 
 
 
