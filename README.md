@@ -22,7 +22,7 @@ Bellow, a snapshot of the Component collection:
 
 4 ) Get result either:
 
-4.1 ) ...from within "NewIncomingMessage" event, argument "data" contains current text line, indded the last one.
+4.1 ) ...from within "NewIncomingMessage" event, argument "msgIn" contains current text line, indded the last one.
 
 4.1 ) ...by reading "GetReceivedMessage" variable; it is assyncronously updated (intermediary values are superseded)
 
