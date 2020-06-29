@@ -8,7 +8,7 @@ The code may be also useful for users of the AppyBuilder community; note however
 
 Bellow, a snapshot of the Component collection:
 
-<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Component.png" alt="" width="350" height="325">
+<img src="https://github.com/teprom/AI2_SSH_EXTENSION/blob/master/res/Component.png" alt="" width="400" height="371">
 
 
 # USAGE:
