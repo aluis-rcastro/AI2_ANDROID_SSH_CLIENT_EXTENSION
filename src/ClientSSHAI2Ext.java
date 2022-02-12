@@ -178,19 +178,19 @@ public class ClientSSHAI2Ext extends AndroidNonvisibleComponent implements Compo
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
-     * Method that returns the Host
+     * Method that returns the Port
      */
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Get PORT")
-    public String GetPort()
+    public int GetPort()
     {
         return port;
     }
 	
     /**
-     * Method that set the Host
+     * Method that set the Port
      */
     @SimpleProperty(category = PropertyCategory.BEHAVIOR, description = "Set PORT - Defaults to 22")
-    public void SetPort(String sPort)
+    public void SetPort(int sPort)
     {
         port = sPort;
     }
