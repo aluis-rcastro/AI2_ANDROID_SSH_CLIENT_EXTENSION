@@ -1,0 +1,1 @@
+This screenshot depicts a way to access the source code of the extension, as depicted in the issue 'change ssh port' ( https://github.com/aluis-rcastro/AI2_ANDROID_SSH_CLIENT_EXTENSION/issues/9 ) in order to attempt to change the Port number without the need to setup the environment development.
